@@ -1,0 +1,595 @@
+{
+  "openharmonyBranch": "OpenHarmony-6.1-Release",
+  "files": [
+    {
+      "file": "headers/accessibility/interfaces/innerkits/aafwk/include/accessibility_ui_test_ability.h",
+      "sha256": "0b5117d6bd0843467f8abbfe1d73dd0a2b71ecc3e310fd55a044a75c33024801",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/aafwk/include/accessibility_ui_test_ability.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/aafwk/include/accessible_ability_listener.h",
+      "sha256": "53be42143c192a199c0d6fcaad13253edde4472d89a312382199f061ea888cd1",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/aafwk/include/accessible_ability_listener.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_constants.h",
+      "sha256": "99913a65026afeb532460b7cb898a00e43c07b173e726267780f030d224e4b43",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_constants.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_def.h",
+      "sha256": "fc13a74e84a9afc9c9556ed7de275fc0d497f97f9353baf77a68dc70a00dfefc",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_def.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_element_info.h",
+      "sha256": "e85759834e619797256a5a31387f202a93f4f13bb9e5e605cd71693eb17a0dfd",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_element_info.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_event_info.h",
+      "sha256": "7c65fe90ed6fb08ca6c380926b314f9f6fa54b122eb20174d535e65f5084b4f4",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_event_info.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_gesture_inject_path.h",
+      "sha256": "4aa3960fdc72c91f2bb5e26bfd0f2875c64b4900831a04f34d4547dcfa4ab743",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_gesture_inject_path.h"
+    },
+    {
+      "file": "headers/accessibility/interfaces/innerkits/common/include/accessibility_window_info.h",
+      "sha256": "4e3906d650ec4621f9a5641967100d605fbd261649726cd74a655d92560a8b4c",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/interfaces/innerkits/common/include/accessibility_window_info.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/ashmem.h",
+      "sha256": "49366bc74546dc46969454b54c4891b6a0cbff7ff1892f525ca2f47fc0101b01",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/ashmem.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/errors.h",
+      "sha256": "df8da91d96d16d2aaca88cb6d07b4124c07624587ce824cdc3ac7a7f0ce5476e",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/errors.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/flat_obj.h",
+      "sha256": "12ede0b53e3421ef259b85037f0c8170f7c9bc3838deb9a7e605029932311a0e",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/flat_obj.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/nocopyable.h",
+      "sha256": "388f5c506f925f6f4fbe00e9937c4ff2550a65a4058a57fe110f54735579a30e",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/nocopyable.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/parcel.h",
+      "sha256": "25d5bca322bfbca84d362b6914856b2b197dea81f3212e9c135356f9c2de2c42",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/parcel.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/refbase.h",
+      "sha256": "7bd7bbf5e9ac303574495df6d8852ef2c122bdb2685d1e161f5ef27086dd89ee",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/refbase.h"
+    },
+    {
+      "file": "headers/commonlibrary_c_utils/base/include/string_ex.h",
+      "sha256": "60f7760ed68802c2690a45d1a6dc590c38e00d739c7e16c806c9351bf3ffa909",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/base/include/string_ex.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/ipc_skeleton.h",
+      "sha256": "d9d481771031f1b1e492bd0d8024e1e14f00e016c1cdf1f7c5f7823c715989ae",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/ipc_skeleton.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/ipc_types.h",
+      "sha256": "656bb739c9262eed524ca8a4550d64cf1ad0f627c261a3fa97a829136c891077",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/ipc_types.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/iremote_broker.h",
+      "sha256": "d3a223aa816138473e6eba939afad92b9838c659e62398ce6e66cca286aea2d5",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/iremote_broker.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+      "sha256": "d16215ef50dc7df9cfe052281559001d75add0d540dfe5311f33e437850785f5",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/iremote_object.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/message_option.h",
+      "sha256": "8c2d02dedb1ca2bc5ecb76023526936aa4859899c828ffd751b09f176e2124ec",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/message_option.h"
+    },
+    {
+      "file": "headers/communication_ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+      "sha256": "126f7a77f5515ad3620938623acd5c8a11155682eb17016e309bdafa831031de",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/interfaces/innerkits/ipc_core/include/message_parcel.h"
+    },
+    {
+      "file": "headers/graphic_graphic_2d/rosen/modules/render_service_base/include/screen_manager/screen_types.h",
+      "sha256": "73802fea84c3590bcd13549af390c3984b205fb3af12a0f052c9025b034381f3",
+      "upstream": "https://github.com/openharmony/graphic_graphic_2d/blob/e1bc9bf3348dd08685912c3a91615e47694105bc/rosen/modules/render_service_base/include/screen_manager/screen_types.h"
+    },
+    {
+      "file": "headers/graphic_graphic_2d/utils/color_manager/export/color_space.h",
+      "sha256": "9f60f2c18cf72a54f8ad9c15a8efda538b49eb4fb9c17a89c1363848ef45b2aa",
+      "upstream": "https://github.com/openharmony/graphic_graphic_2d/blob/e1bc9bf3348dd08685912c3a91615e47694105bc/utils/color_manager/export/color_space.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/common/graphic_common.h",
+      "sha256": "3893448ac06924b55ab204fc77dce565642c8b24e5238f0595b9503bb94c39e9",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/common/graphic_common.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/common/graphic_common_c.h",
+      "sha256": "17e98656cccf0108a679003254ec21c0b30b7d45ed3693b449bbcb961affd6da",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/common/graphic_common_c.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/buffer_common.h",
+      "sha256": "fec0c0547d272b79c40fc465eb55fee87fdacb2d5833d2071f85f38fddc33cb0",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/buffer_common.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/buffer_extra_data.h",
+      "sha256": "82de7a1aa38204e08e0207461cc5715670104b8e04da12cfb9c7c444abfda042",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/buffer_extra_data.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/egl_data.h",
+      "sha256": "35654e44be66067b1172ba2a077be6a928c22c0f7809e87edb6a92822008f521",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/egl_data.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/external_window.h",
+      "sha256": "1a82a7b23c61b0778c1900bffebb5d70b9864e07bfb590d0e8f20956605b6291",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/external_window.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/ibuffer_consumer_listener.h",
+      "sha256": "f92d25b619b78c59c33c0f1457013c380f30c5fe304af9373f43ad99d9a99766",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/ibuffer_consumer_listener.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/ibuffer_producer.h",
+      "sha256": "5132d68dfba6f098a0a1831b33840675ff0af54a4fca311fde88353c6a8504e9",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/ibuffer_producer.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/ibuffer_producer_listener.h",
+      "sha256": "a2f7f3aeb5c33dac08b53b04011d977dd06773eef1a4cc1ad590eb0c88d3eef9",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/ibuffer_producer_listener.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/native_buffer.h",
+      "sha256": "f67502ffcecbe4dd4d5d865ff97c43f8e937e8c880d19ff24ab2dab2ff5a686e",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/native_buffer.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/native_surface.h",
+      "sha256": "dca6651a6903b772f58fefa5b634444d9468da38e199b61433e96cb4eeb65223",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/native_surface.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/surface.h",
+      "sha256": "a39a7ab7cf2e7087c9bb124ddd6d336b887fe0177e329cd86ae18f9eee7ee8d3",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/surface.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/surface_buffer.h",
+      "sha256": "8d0781e6f8c65f1a08467c163ca9710071ff342d7168a695ede01fff86852907",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/surface_buffer.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/surface_tunnel_handle.h",
+      "sha256": "31204c95dad51e00baa7e412f3d5053e14375cf513bed8ddbbc6b671d5c3bd55",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/surface_tunnel_handle.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/surface_type.h",
+      "sha256": "709be4f558b6078df421c382c70dd166b01fbd38d511913e308d303ccc9543d0",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/surface_type.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/surface/surface_utils.h",
+      "sha256": "673b39bdabc7476e144d2089538fb792a2d1bf06b8e4e3785cb3c722406beec1",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/surface/surface_utils.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/utils/buffer_handle.h",
+      "sha256": "26b1ffa04d9c9933c45c3e1ddc8283b66f46acb95c6e8743d44d69baeb925fad",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/utils/buffer_handle.h"
+    },
+    {
+      "file": "headers/graphic_graphic_surface/interfaces/inner_api/utils/buffer_handle_utils.h",
+      "sha256": "a50012beedb46527ef723fb31a3a2af53d50b463909c24d12727ebf9f3f0bff4",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/interfaces/inner_api/utils/buffer_handle_utils.h"
+    },
+    {
+      "file": "headers/multimedia_image_framework/interfaces/innerkits/include/image_type.h",
+      "sha256": "603499789c0fd247fd55243155f9e9be618bd80856c02ac52c19c220491d4737",
+      "upstream": "https://github.com/openharmony/multimedia_image_framework/blob/52ada0907b3a338c7b615d835560b3ca70ecaef9/interfaces/innerkits/include/image_type.h"
+    },
+    {
+      "file": "headers/multimedia_image_framework/interfaces/innerkits/include/pixel_map.h",
+      "sha256": "386d63296796f5a2c421cc445722f03f2f280b8db58df799a55298bd8888f8f6",
+      "upstream": "https://github.com/openharmony/multimedia_image_framework/blob/52ada0907b3a338c7b615d835560b3ca70ecaef9/interfaces/innerkits/include/pixel_map.h"
+    },
+    {
+      "file": "headers/multimedia_image_framework/interfaces/innerkits/include/pixel_map_parcel.h",
+      "sha256": "2e2f49e7edc12abfd151bb1527b2ef385b1b1036cf93963c431d1f9dc806873e",
+      "upstream": "https://github.com/openharmony/multimedia_image_framework/blob/52ada0907b3a338c7b615d835560b3ca70ecaef9/interfaces/innerkits/include/pixel_map_parcel.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/axis_event.h",
+      "sha256": "83a9d26ac4a8dfbf007ab554ed276292ed669d883eecddf2bf5497e0b9197837",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/axis_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/i_anr_observer.h",
+      "sha256": "5bdcac05e50a51dd45724bd138bcea07b478f02ba7f9e5ce3a3284a246602054",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/i_anr_observer.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/i_input_device_listener.h",
+      "sha256": "42de66cff59775b6e4715c8efc5897e44f7cd276a012e1e47fdea50c319d1929",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/i_input_device_listener.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/i_input_event_consumer.h",
+      "sha256": "8a62e4dd459fea71c2a95371b61d429a118296aa45b6ae2c0f8b2af7f97b4890",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/i_input_event_consumer.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/i_input_event_filter.h",
+      "sha256": "57b0041b88ae1448435586ff9f3ecfe9cd615622d7a7f947c2ed5d485a8d3c67",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/i_input_event_filter.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/i_window_checker.h",
+      "sha256": "770e1c935e8a4208d16b697f7a0e80b0edc45419ba0dc919da4fcf67bcefcddb",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/i_window_checker.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/infrared_frequency_info.h",
+      "sha256": "214854493960452fb548a77d95db6e13b935536a6e513a916eca0765bd48be24",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/infrared_frequency_info.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/input_device.h",
+      "sha256": "385580281860343691372845aa9f0bc9a4691b57e65d3f97a78f580bcfa3f4eb",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/input_device.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/input_event.h",
+      "sha256": "da77b0fcb4194478c183ac29525a2be6c5881626ac043f87cd4859bedf0def2f",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/input_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/input_handler_type.h",
+      "sha256": "4897c49ecd91904dbc780793775e8338625073384af522a0a453ff69fc74d0fe",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/input_handler_type.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/key_event.h",
+      "sha256": "cca502daa6ec7e3b4734ff20c1a9e9010b2cdb9bd4f468c3f79705de3a6736f5",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/key_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/key_option.h",
+      "sha256": "daf95a4ba7df3f0fe5deefca5fabd541b706d88b3ee3e7d475a630e422741e71",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/key_option.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/long_press_event.h",
+      "sha256": "0500feb0383d08dc48c63da2d109b1c4753dad02962d3fad972e0f857e1dad11",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/long_press_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/mmi_event_observer.h",
+      "sha256": "e600a3aee6590b84bb584de0334e3074b3854eadf5c4c77fe8a1bf1787869921",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/mmi_event_observer.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/pointer_event.h",
+      "sha256": "710fd87c4d1ed09c02a9cf2513c1d3ad3c3e6cbc3e9753b84565191430dcd2c3",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/pointer_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/pointer_style.h",
+      "sha256": "6f31ec5c0ab97dbcfe38c099ff7338a6c86dea248a69dfe3f2235421c998e400",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/pointer_style.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/shift_info.h",
+      "sha256": "654dcdba8c3f690de403e698955b122f6751c2ed9e746700647c5339ac39a4f8",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/shift_info.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/switch_event.h",
+      "sha256": "4f43c690c58f89024efcf1638144061e02dd89f491cd2ada8d6c8001ca9890e4",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/switch_event.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/event/include/touchpad_control_display_gain.h",
+      "sha256": "da83274ad0059f03f9789e475fb90fb3f5d10ae8f00ea12f9f9582cee60490d8",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/event/include/touchpad_control_display_gain.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/proxy/include/extra_data.h",
+      "sha256": "56455e3da45ee55d7dcf4ffe0287a1cbb5ea77a2356159c3ff7fc7ed5ee2fe96",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/proxy/include/extra_data.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/proxy/include/i_anco_consumer.h",
+      "sha256": "95bfac7278e01ac7baa5b5f7833b08614ba62e53dbbbe8c4fe3f73a3370b116c",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/proxy/include/i_anco_consumer.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/proxy/include/i_input_service_watcher.h",
+      "sha256": "72a6bfc3cdc8450aaec14ad9d7ca517ba58bff3b6e953d302dcb46200a26def8",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/proxy/include/i_input_service_watcher.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/proxy/include/input_manager.h",
+      "sha256": "94697b28eb889fcfe3979747b02cbf30e63cc4f6768ce244d1206b9c7efd4d03",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/proxy/include/input_manager.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/interfaces/native/innerkits/proxy/include/window_info.h",
+      "sha256": "67d1b133a1c2f1a43dfd6f96d61be995ecf58fc45d03e3e02935357f54d66db3",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/interfaces/native/innerkits/proxy/include/window_info.h"
+    },
+    {
+      "file": "headers/multimodalinput_input/util/common/include/error_multimodal.h",
+      "sha256": "5c08ca592c7159a875fc4321078600be563d4b72492554d223c092ab438ef6ca",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/multimodalinput_input/-/blob/c4b8fe99e367b3a9b2f3fb201f516c516458fad0/util/common/include/error_multimodal.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/dumper.h",
+      "sha256": "7de940011f2bb100d935eee2b6d2903c01aa858521fe1dbd273683debfdec843",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/dumper.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/event_handler.h",
+      "sha256": "e57be2225bba2777652f5e5cc8a816e142a640aeae7ad3cc54366e17811e14e1",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/event_handler.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/event_handler_errors.h",
+      "sha256": "dcbbc11c99550162f3decdf83a3a06aaf41c761603b5c0525f1264b755aaa5b7",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/event_handler_errors.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/event_inner_logger.h",
+      "sha256": "697dcfe95208ce2cce529799ffd353699048733812ae13a45c6a1da612e60129",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/event_inner_logger.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/event_queue.h",
+      "sha256": "57ea453727f9a83485c73e0a511da02cc0cdd18641cceb9aee934c826f15c512",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/event_queue.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/event_runner.h",
+      "sha256": "2bdf35f435b0461e087cbe4d75b15027177dbd5ba4087431dc047e842c08e4ca",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/event_runner.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/file_descriptor_listener.h",
+      "sha256": "1b5564bde0b2d4ebeec6b5021687af47cf4db6e469a5d71b7be6f67d7d0d0781",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/file_descriptor_listener.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/inner_event.h",
+      "sha256": "80cf9ae677b95700da36f42b67a6e5e245d5f732e545853ac17b12484e6cc849",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/inner_event.h"
+    },
+    {
+      "file": "headers/notification_eventhandler/interfaces/inner_api/lock_base.h",
+      "sha256": "9c40d363067042f3961c81fc50c543e6aa7e95948d196b7bb4851b39f0efefe8",
+      "upstream": "https://code.ruyicommunity.cn/risc-verse/ruyi-desktop-os/notification_eventhandler/-/blob/b6dbe337dee47a8567faa21214fb7ef1f342de6d/interfaces/inner_api/lock_base.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/config/SkUserConfig.h",
+      "sha256": "90cd3852aed7765258e05eefef0253387e357c09fbac0f5cce93da463cd4b0d2",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/config/SkUserConfig.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/core/SkColorSpace.h",
+      "sha256": "319e5d0b8317258690f00d096bf0111328ca5313be82c8c775ff1c33c9605ddd",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/core/SkColorSpace.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/core/SkRefCnt.h",
+      "sha256": "1fa21c776ef9ed2002c54f9fde529220f762a173ef10fcc2a121eee0dfc6ab8b",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/core/SkRefCnt.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/core/SkTypes.h",
+      "sha256": "6539d036102517a042fc7ab45b17bdbdf6686d5b5502178a5ef20d45c198d93e",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/core/SkTypes.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkAPI.h",
+      "sha256": "0e62a10f8b8d2f38c050eaa74a6ac9c9336b98d944957cc2abb79c90bdf97f61",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkAPI.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkAssert.h",
+      "sha256": "6cdb99bf5c50e16a937bfc4223091cb5f3b5eda4d90f85552502701f6fb73937",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkAssert.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkAttributes.h",
+      "sha256": "d4221e6cfe53c6f490494971a86ef25cc270ad74060f97de3417706e827ba5a8",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkAttributes.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkCPUTypes.h",
+      "sha256": "3b4b118465517b61823aac8495909c1e2738f76aba9dba9a51f2caac35a3c92b",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkCPUTypes.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkDebug.h",
+      "sha256": "fc5bb28ebf2cc1c4b47dd437fa858690f32eb246cd245c55443ebcaeec25c1ba",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkDebug.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkFeatures.h",
+      "sha256": "08e33e0039d665dbf322e80a10f0fea1bfe43b45a2a92a085ec3dbf619d45d5f",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkFeatures.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkFixed.h",
+      "sha256": "dbb3aed7b717ac59d9513f5286d0fc0ed3f278208697397a8a06fa8413f8a039",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkFixed.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkLoadUserConfig.h",
+      "sha256": "b830bb0d376cd4a5135ed29823fa5319b32db0858906903e3c57aeb294b3bf0d",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkLoadUserConfig.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkMath.h",
+      "sha256": "7292f09319be31930cbb47b91d470197c49c5652988e98f7679c26b91bc33708",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkMath.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkOnce.h",
+      "sha256": "1dcb408d62dc1a92ca2f6670db707466ffd81e198fd9b9e73b1990b0c017f164",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkOnce.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkTPin.h",
+      "sha256": "4110e78719d3a35d417e34cfdacee452ce4d2df5c34564943073aff8dd7d943f",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkTPin.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/include/private/base/SkThreadAnnotations.h",
+      "sha256": "8e8e582b955b24ec3b79610e516b6373c76994fd7e5b1fc7626db2b808e3c0c5",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/include/private/base/SkThreadAnnotations.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/modules/skcms/skcms.h",
+      "sha256": "f3431fe230076dda4dcad5c3b1cc4789ef6d71967f254c6fdac32a3b97bb94de",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/modules/skcms/skcms.h"
+    },
+    {
+      "file": "headers/third_party_skia/m133/modules/skcms/src/skcms_public.h",
+      "sha256": "b891a1b039a1f2eb482315c0031d7b37fafe535328f46efc5260b5db3efa1330",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/modules/skcms/src/skcms_public.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/display.h",
+      "sha256": "477193b4616ed46db969e2f800331642d059543d23c95b43cf83e6d7c1e1dc98",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/display.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/display_manager.h",
+      "sha256": "8e6ebc5b46055a9983b0aecb944492e4e53b3fd7fba510d52a7c60411c8b5552",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/display_manager.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/dm_common.h",
+      "sha256": "2d6c258c5c2e025472698a60a4854080029b0841b829ce00ea23b623584c6061",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/dm_common.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/screen.h",
+      "sha256": "41c90be5e25c0406d1d8f4ae67f804fe84ac8595d984c3b1d8969bd1d1c969d8",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/screen.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/screen_group.h",
+      "sha256": "7358c3c9a366a10a19e5d15d780c894769c68fe1ce520143a5823cfeb4239dfa",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/screen_group.h"
+    },
+    {
+      "file": "headers/window_window_manager/interfaces/innerkits/dm/screen_manager.h",
+      "sha256": "1766f1f371e70fdbd7b0158ddc19303fe28e996ed5a5b9d225bd374cdb8236a8",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/interfaces/innerkits/dm/screen_manager.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/class_var_definition.h",
+      "sha256": "d5e4a415000e2b99c2bac7847b206561d4ad214aac29e2aead944435c24b5ea2",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/class_var_definition.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/cutout_info.h",
+      "sha256": "c7ba03f97826d8722f5c4f8160c4eac73f6be36c08f49d7bf55b1243614cb89e",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/cutout_info.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/display_change_info.h",
+      "sha256": "492db2efbd2884efa8e7b1483611191d6e52b5c666b6a8fb614f11fa674adc9e",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/display_change_info.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/display_info.h",
+      "sha256": "9e4edc8399abbdf4b8b55ecb868e6014ab8294edb958f70d7ff7a5fb77f4d34f",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/display_info.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/fold_screen_info.h",
+      "sha256": "2f8ff5852d666d7a357ae12b8b3c9d24f5c144d61d482ebfcde1b850360316bc",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/fold_screen_info.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/noncopyable.h",
+      "sha256": "599a53d8730e8a0d673aff3560dd4f5f7e732e7662d3574801634b1a82e39134",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/noncopyable.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/screenshot_info.h",
+      "sha256": "1aaa6b598a03d0652796a73f5d96f085808e2a228e99d653d41f9fa847105979",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/screenshot_info.h"
+    },
+    {
+      "file": "headers/window_window_manager/utils/include/wm_single_instance.h",
+      "sha256": "6a16dc7f5257df523b377790af9a40d9359266c0e4593819412b360634dd951d",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/utils/include/wm_single_instance.h"
+    },
+    {
+      "file": "licenses/accessibility-LICENSE",
+      "sha256": "9264a6b3c134511ccfcae48ed3808320688ae6933ec4fc547476a005095fc1ef",
+      "upstream": "https://github.com/openharmony/accessibility/blob/c20fb573a56051679c90e8f471548a7771f9a43d/LICENSE"
+    },
+    {
+      "file": "licenses/commonlibrary_c_utils-LICENSE",
+      "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "upstream": "https://github.com/openharmony/commonlibrary_c_utils/blob/7c84a35dbe2844ec9bf5375611f16a1251fa2ae0/LICENSE"
+    },
+    {
+      "file": "licenses/communication_ipc-LICENSE",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "upstream": "https://github.com/openharmony/communication_ipc/blob/6529ed90ac05eb0a0f0a746989772b14d16a8243/LICENSE"
+    },
+    {
+      "file": "licenses/graphic_graphic_2d-LICENSE",
+      "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "upstream": "https://github.com/openharmony/graphic_graphic_2d/blob/e1bc9bf3348dd08685912c3a91615e47694105bc/LICENSE"
+    },
+    {
+      "file": "licenses/graphic_graphic_surface-LICENSE",
+      "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "upstream": "https://github.com/openharmony/graphic_graphic_surface/blob/dcdad6b454c2509370043ddcd89e170020c5bf2b/LICENSE"
+    },
+    {
+      "file": "licenses/multimedia_image_framework-LICENSE",
+      "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "upstream": "https://github.com/openharmony/multimedia_image_framework/blob/52ada0907b3a338c7b615d835560b3ca70ecaef9/LICENSE"
+    },
+    {
+      "file": "licenses/third_party_skia-m133_LICENSE",
+      "sha256": "5f787c1dee3c56547f09ccc2906ab5f5293c4d8dd6c8654e573216c38e908dbd",
+      "upstream": "https://github.com/openharmony/third_party_skia/blob/943d6c30d3d728e2f8feb267649880ea3fd9188b/m133/LICENSE"
+    },
+    {
+      "file": "licenses/window_window_manager-LICENSE",
+      "sha256": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "upstream": "https://github.com/openharmony/window_window_manager/blob/2d504b0c0be7c233e767f24b4f07452a809d47bc/LICENSE"
+    }
+  ]
+}

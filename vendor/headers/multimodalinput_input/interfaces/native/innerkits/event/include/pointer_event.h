@@ -1,0 +1,2196 @@
+/*
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifndef POINTER_EVENT_H
+#define POINTER_EVENT_H
+
+#include <array>
+#include <cfloat>
+#include <list>
+#include <set>
+#include <unordered_map>
+#include "parcel.h"
+
+#include "input_event.h"
+#include "input_handler_type.h"
+
+namespace OHOS {
+namespace MMI {
+class PointerEvent : public InputEvent {
+public:
+    static constexpr int32_t POINTER_INITIAL_VALUE = -1;
+    /**
+     * Indicates an unknown pointer action. It is usually used as initial value.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_UNKNOWN = 0;
+
+    /**
+     * Indicates a pointer action that has been canceled.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_CANCEL = 1;
+
+    /**
+     * Indicates a pointer action representing that a finger is pressed on a touchscreen or touchpad.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_DOWN = 2;
+
+    /**
+     * Indicates a pointer action representing that a finger moves on a touchscreen or touchpad or a mouse
+     * pointer moves.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_MOVE = 3;
+
+    /**
+     * Indicates a pointer action representing that a finger leaves the touchscreen or touchpad.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_UP = 4;
+
+    /**
+     * Indicates the start action of the axis event related to the pointer.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_AXIS_BEGIN = 5;
+
+    /**
+     * Indicates the update action of the axis event related to the pointer.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_AXIS_UPDATE = 6;
+
+    /**
+     * Indicates the end action of the axis event related to the pointer.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_AXIS_END = 7;
+
+    /**
+     * Indicates a pointer action representing that a button is pressed.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_BUTTON_DOWN = 8;
+
+    /**
+     * Indicates a pointer action representing that a button is released.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_BUTTON_UP = 9;
+
+    /**
+     * Indicates that the pointer enters the window.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_ENTER_WINDOW = 10;
+
+    /**
+     * Indicates that the pointer leaves the window.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_LEAVE_WINDOW = 11;
+
+    static constexpr int32_t POINTER_ACTION_PULL_DOWN = 12;
+
+    static constexpr int32_t POINTER_ACTION_PULL_MOVE = 13;
+
+    static constexpr int32_t POINTER_ACTION_PULL_UP = 14;
+
+    static constexpr int32_t POINTER_ACTION_PULL_IN_WINDOW = 15;
+
+    static constexpr int32_t POINTER_ACTION_PULL_OUT_WINDOW = 16;
+
+    /**
+     * Indicates that the fingers swipe up in touch pad.
+     *
+     * @since 9
+     */
+    static constexpr int32_t POINTER_ACTION_SWIPE_BEGIN = 17;
+
+    static constexpr int32_t POINTER_ACTION_SWIPE_UPDATE = 18;
+
+    static constexpr int32_t POINTER_ACTION_SWIPE_END = 19;
+
+    /**
+     * Indicates that the fingers rotate in touch pad.
+     *
+     * @since 11
+     */
+    static constexpr int32_t POINTER_ACTION_ROTATE_BEGIN = 20;
+
+    static constexpr int32_t POINTER_ACTION_ROTATE_UPDATE = 21;
+
+    static constexpr int32_t POINTER_ACTION_ROTATE_END = 22;
+
+    static constexpr int32_t POINTER_ACTION_TRIPTAP = 23;
+
+    static constexpr int32_t POINTER_ACTION_QUADTAP = 24;
+
+    /**
+     * Indicates that the hover action.
+     *
+     * @since 11
+     */
+    static constexpr int32_t POINTER_ACTION_HOVER_MOVE = 25;
+
+    static constexpr int32_t POINTER_ACTION_HOVER_ENTER = 26;
+
+    static constexpr int32_t POINTER_ACTION_HOVER_EXIT = 27;
+
+    /**
+     * Indicates that the fingerprint action.
+     *
+     * @since 12
+     */
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_DOWN = 28;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_UP = 29;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_SLIDE = 30;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_RETOUCH = 31;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_CLICK = 32;
+
+    static constexpr int32_t POINTER_ACTION_HOVER_CANCEL = 33;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_CANCEL = 34;
+
+    /**
+     * Indicates that the pen proximity action.
+     *
+     * @since 12
+     */
+    static constexpr int32_t POINTER_ACTION_PROXIMITY_IN = 35;
+
+    static constexpr int32_t POINTER_ACTION_PROXIMITY_OUT = 36;
+
+    static constexpr int32_t POINTER_ACTION_PULL_CANCEL = 37;
+
+    /**
+     * Indicates extra fingerprint action.
+     *
+     * @since 16
+     */
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_HOLD = 38;
+
+    static constexpr int32_t POINTER_ACTION_FINGERPRINT_TOUCH = 39;
+
+    static constexpr int32_t POINTER_ACTION_PULL_THROW = 40;
+
+    static constexpr int32_t POINTER_ACTION_TOUCHPAD_ACTIVE = 50;
+
+    /**
+     * Indicates that the cursor appears to levitate above the window.
+     *
+     * @since 23
+     */
+    static constexpr int32_t POINTER_ACTION_LEVITATE_MOVE = 51;
+
+    /**
+     * Indicates that the cursor appears to levitate into the window.
+     *
+     * @since 23
+     */
+    static constexpr int32_t POINTER_ACTION_LEVITATE_IN_WINDOW = 52;
+
+    /**
+     * Indicates that the cursor appears to levitate out of the window.
+     *
+     * @since 23
+     */
+    static constexpr int32_t POINTER_ACTION_LEVITATE_OUT_WINDOW = 53;
+
+    /**
+     * 表示触屏手势动作
+     *
+     * @since 12
+     */
+    static constexpr int32_t TOUCH_ACTION_SWIPE_DOWN = 100;
+
+    static constexpr int32_t TOUCH_ACTION_SWIPE_UP = 101;
+
+    static constexpr int32_t TOUCH_ACTION_SWIPE_RIGHT = 102;
+
+    static constexpr int32_t TOUCH_ACTION_SWIPE_LEFT = 103;
+
+    static constexpr int32_t TOUCH_ACTION_PINCH_OPENED = 104;
+
+    static constexpr int32_t TOUCH_ACTION_PINCH_CLOSEED = 105;
+
+    static constexpr int32_t TOUCH_ACTION_GESTURE_END = 106;
+
+    /**
+     *
+     * @since 20
+     */
+    static constexpr int32_t DISPLAY_COORDINATE = 0;
+
+    static constexpr int32_t GLOBAL_COORDINATE = 1;
+
+    enum AxisType {
+        /**
+         * Indicates an unknown axis type. It is generally used as the initial value.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_UNKNOWN,
+
+        /**
+         * Indicates the vertical scroll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
+         * the status of the vertical scroll axis changes.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_SCROLL_VERTICAL,
+
+        /**
+         * Indicates the horizontal scroll axis.
+         * When you scroll the mouse wheel or make certain gestures on the touchpad,
+         * the status of the horizontal scroll axis changes.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_SCROLL_HORIZONTAL,
+
+        /**
+         * Indicates the pinch axis, which is used to describe a pinch gesture on the touchscreen or touchpad.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_PINCH,
+
+        /**
+         * Indicates the rotate axis, which is used to describe a rotate gesture on the touchpad.
+         *
+         * @since 11
+         */
+        AXIS_TYPE_ROTATE,
+
+        /**
+         * Indicates the x axis. The status of the x axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_X,
+
+        /**
+         * Indicates the y axis. The status of the y axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_Y,
+
+        /**
+         * Indicates the z axis. The status of the z axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_Z,
+
+        /**
+         * Indicates the rz axis. The status of the rz axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_RZ,
+
+        /**
+         * Indicates the gas axis. The status of the gas axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_GAS,
+
+        /**
+         * Indicates the brake axis. The status of the brake axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_BRAKE,
+
+        /**
+         * Indicates the hat0x axis. The status of the hat0x axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_HAT0X,
+
+        /**
+         * Indicates the hat0y axis. The status of the hat0y axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_HAT0Y,
+
+        /**
+         * Indicates the throttle axis. The status of the throttle axis changes when you operate the joystick.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_ABS_THROTTLE,
+
+        AXIS_TYPE_ABS_RX,
+        AXIS_TYPE_ABS_RY,
+        AXIS_TYPE_ABS_RUDDER,
+        AXIS_TYPE_ABS_WHEEL,
+        AXIS_TYPE_ABS_HAT1X,
+        AXIS_TYPE_ABS_HAT1Y,
+        AXIS_TYPE_ABS_HAT2X,
+        AXIS_TYPE_ABS_HAT2Y,
+        AXIS_TYPE_ABS_HAT3X,
+        AXIS_TYPE_ABS_HAT3Y,
+
+        /**
+         * Indicates the maximum number of defined axis types.
+         *
+         * @since 9
+         */
+        AXIS_TYPE_MAX
+    };
+
+    enum FixedMode {
+        /**
+         * Indicates unknown.
+         */
+        SCREEN_MODE_UNKNOWN = 0,
+        /**
+         * Indicates normal mode.
+         */
+        NORMAL,
+        /**
+         * Indicates one-hand mode.
+         */
+        AUTO,
+        /**
+         * Indicates invalid max.
+         */
+        SCREEN_MODE_MAX
+    };
+
+    enum RightButtonSource {
+        /**
+         * Indicates invalidity. For example, left-click on touchpad, left-click with mouse, touch screen, stylus, etc.
+         */
+        INVALID = -1,
+        /**
+         * Indicates others right button.
+         */
+        OTHERS,
+        /**
+         * Indicates touchpad right button.
+         */
+        TOUCHPAD_RIGHT_BUTTONS,
+        /**
+         * Indicates mouse right.
+         */
+        MOUSE_RIGHT,
+        /**
+         * Indicates touchpad two finger tap.
+         */
+        TOUCHPAD_TWO_FINGER_TAP
+    };
+
+    /**
+     * Indicates an invalid button ID.
+     *
+     * @since 9
+     */
+    static constexpr int32_t BUTTON_NONE = -1;
+
+    /**
+     * Indicates the left button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_LEFT = 0;
+
+    /**
+     * Indicates the right button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_RIGHT = 1;
+
+    /**
+     * Indicates the middle button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_MIDDLE = 2;
+
+    /**
+     * Indicates the side button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_SIDE = 3;
+
+    /**
+     * Indicates the extra button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_EXTRA = 4;
+
+    /**
+     * Indicates the forward button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_FORWARD = 5;
+
+    /**
+     * Indicates the back button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_BACK = 6;
+
+    /**
+     * Indicates the task button on a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t MOUSE_BUTTON_TASK = 7;
+
+    /**
+     * Indicates a finger.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_FINGER = 0;
+
+    /**
+     * Indicates a stylus.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_PEN = 1;
+
+    /**
+     * Indicates an eraser.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_RUBBER = 2;
+
+    /**
+     * Indicates a brush.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_BRUSH = 3;
+
+    /**
+     * Indicates a pencil.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_PENCIL = 4;
+
+    /**
+     * Indicates an air brush.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_AIRBRUSH = 5;
+
+    /**
+     * Indicates a mouse.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_MOUSE = 6;
+
+    /**
+     * Indicates a lens.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_LENS = 7;
+
+    /**
+     * Indicates a knuckle.
+     *
+     * @since 11
+     */
+    static constexpr int32_t TOOL_TYPE_KNUCKLE = 8;
+
+    /**
+     * Indicates a touchpad.
+     *
+     * @since 9
+     */
+    static constexpr int32_t TOOL_TYPE_TOUCHPAD = 9;
+
+    /**
+     * Indicates a palm.
+     *
+     * @since 10
+     */
+    static constexpr int32_t TOOL_TYPE_PALM = 10;
+    static constexpr int32_t TOOL_TYPE_THP_FEATURE = 11;
+
+    /**
+     * Indicates the TL2 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TL2 = 0;
+
+    /**
+     * Indicates the TR2 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TR2 = 1;
+
+    /**
+     * Indicates the TL key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TL = 2;
+
+    /**
+     * Indicates the TR key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TR = 3;
+
+    /**
+     * Indicates the WEST key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_WEST = 4;
+
+    /**
+     * Indicates the SOUTH key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_SOUTH = 5;
+
+    /**
+     * Indicates the NORTH key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_NORTH = 6;
+
+    /**
+     * Indicates the EAST key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_EAST = 7;
+
+    /**
+     * Indicates the START key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_START = 8;
+
+    /**
+     * Indicates the SELECT key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_SELECT = 9;
+
+    /**
+     * Indicates the HOMEPAGE key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_HOMEPAGE = 10;
+
+    /**
+     * Indicates the THUMBL key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_THUMBL = 11;
+
+    /**
+     * Indicates the THUMBR key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_THUMBR = 12;
+
+    /**
+     * Indicates the TRIGGER key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TRIGGER = 13;
+
+    /**
+     * Indicates the THUMB key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_THUMB = 14;
+
+    /**
+     * Indicates the THUMB2 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_THUMB2 = 15;
+
+    /**
+     * Indicates the TOP key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TOP = 16;
+
+    /**
+     * Indicates the TOP2 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_TOP2 = 17;
+
+    /**
+     * Indicates the PINKIE key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_PINKIE = 18;
+
+    /**
+     * Indicates the BASE key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE = 19;
+
+    /**
+     * Indicates the BASE2 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE2 = 20;
+
+    /**
+     * Indicates the BASE3 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE3 = 21;
+
+    /**
+     * Indicates the BASE4 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE4 = 22;
+
+    /**
+     * Indicates the BASE5 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE5 = 23;
+
+    /**
+     * Indicates the BASE6 key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_BASE6 = 24;
+
+    /**
+     * Indicates the DEAD key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_DEAD = 25;
+
+    /**
+     * Indicates the C key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_C = 26;
+
+    /**
+     * Indicates the Z key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_Z = 27;
+
+    /**
+     * Indicates the MODE key on the joystick.
+     *
+     * @since 9
+     */
+    static constexpr int32_t JOYSTICK_BUTTON_MODE = 28;
+
+    enum AxisEventType {
+        /**
+         * Indicates an unknown axis events.
+         *
+         * @since 12
+         */
+        AXIS_EVENT_TYPE_UNKNOWN = -1,
+        /**
+         * Indicates two-finger pinch events. The axis value can be AXIS_TYPE_PINCH or AXIS_TYPE_ROTATE.
+         *
+         * @since 12
+         */
+        AXIS_EVENT_TYPE_PINCH = 1,
+        /**
+         * Indicates scroll axis events. The axis value can be AXIS_TYPE_SCROLL_VERTICAL or AXIS_TYPE_SCROLL_HORIZONTAL.
+         * Wherein, the value of AXIS_TYPE_SCROLL_HORIZONTAL is 0 for a mouse wheel event.
+         *
+         * @since 12
+         */
+        AXIS_EVENT_TYPE_SCROLL = 2,
+    };
+public:
+    static std::shared_ptr<PointerEvent> from(std::shared_ptr<InputEvent> inputEvent);
+     /**
+     * @brief All possible extension values
+     * @since 23
+     */
+    enum class PointerItemExtension : int32_t {
+        PREDICT_WINDOW_X = 1001,
+        PREDICT_WINDOW_Y = 1002,
+    };
+
+public:
+    class PointerItem {
+    public:
+        PointerItem();
+        ~PointerItem();
+
+    public:
+        /**
+         * @brief Obtains the ID of the pointer in this event.
+         * @return Returns the pointer ID.
+         * @since 9
+         */
+        int32_t GetPointerId() const;
+
+        /**
+         * @brief Sets the ID of the pointer in this event.
+         * @param pointerId Indicates the pointer ID to set.
+         * @return void
+         * @since 9
+         */
+        void SetPointerId(int32_t pointerId);
+
+        /**
+         * @brief Obtains the origin id of the pointer in this event.
+         * @return Returns the pointer id.
+         * @since 12
+         */
+        int32_t GetOriginPointerId() const;
+
+        /**
+         * @brief Sets the origin id of the pointer in this event.
+         * @param pointerId Indicates the pointer id to set.
+         * @return void
+         * @since 12
+         */
+        void SetOriginPointerId(int32_t originPointerId);
+
+        /**
+         * @brief Obtains the time when the pointer is pressed.
+         * @return Returns the time.
+         * @since 9
+         */
+        int64_t GetDownTime() const;
+
+        /**
+         * @brief Sets the time when the pointer is pressed.
+         * @param downTime Indicates the time to set.
+         * @return void
+         * @since 9
+         */
+        void SetDownTime(int64_t downTime);
+
+        /**
+         * @brief Checks whether the pointer is pressed.
+         * @return Returns <b>true</b> if the pointer is pressed; returns <b>false</b> otherwise.
+         * @since 9
+         */
+        bool IsPressed() const;
+
+        /**
+         * @brief Sets whether to enable the pressed state for the pointer.
+         * @param pressed Specifies whether to set the pressed state for the pointer.
+         * The value <b>true</b> means to set the pressed state for the pointer, and the
+         * value <b>false</b> means the opposite.
+         * @return void
+         * @since 9
+         */
+        void SetPressed(bool pressed);
+
+        /**
+         * @brief Obtains the x coordinate relative to the upper left corner of the screen.
+         * For a touchpad input event, the value is the absolute x coordinate on the touchpad.
+         * For other pointer input events, the value is the x coordinate on the target screen.
+         * @return Returns the x coordinate.
+         * @since 9
+         */
+        int32_t GetDisplayX() const;
+        double GetDisplayXPos() const;
+
+        /**
+         * @brief Sets the x coordinate relative to the upper left corner of the screen.
+         * @param displayX Indicates the x coordinate to set.
+         * @return void
+         * @since 9
+         */
+        void SetDisplayX(int32_t displayX);
+        void SetDisplayXPos(double displayX);
+
+        /**
+         * @brief Obtains the y coordinate relative to the upper left corner of the screen.
+         * For a touchpad input event, the value is the absolute y coordinate on the touchpad.
+         * For other pointer input events, the value is the y coordinate on the target screen.
+         * @return Returns the y coordinate.
+         * @since 9
+         */
+        int32_t GetDisplayY() const;
+        double GetDisplayYPos() const;
+
+        /**
+         * @brief Sets the y coordinate relative to the upper left corner of the screen.
+         * @param displayY Indicates the y coordinate to set.
+         * @return void
+         * @since 9
+         */
+        void SetDisplayY(int32_t displayY);
+        void SetDisplayYPos(double displayY);
+
+        /**
+         * @brief Obtains the x coordinate of the active window.
+         * @return Returns the x coordinate.
+         * @since 9
+         */
+        int32_t GetWindowX() const;
+        double GetWindowXPos() const;
+
+        /**
+         * @brief Sets the x coordinate of the active window.
+         * @param x Indicates the x coordinate to set.
+         * @return void
+         * @since 9
+         */
+        void SetWindowX(int32_t x);
+        void SetWindowXPos(double x);
+
+        /**
+         * @brief Obtains the y coordinate of the active window.
+         * @return Returns the y coordinate.
+         * @since 9
+         */
+        int32_t GetWindowY() const;
+        double GetWindowYPos() const;
+
+        /**
+         * @brief Sets the y coordinate of the active window.
+         * @param y Indicates the y coordinate to set.
+         * @return void
+         * @since 9
+         */
+        void SetWindowY(int32_t y);
+        void SetWindowYPos(double y);
+
+        /**
+         * @brief Set global X coordinate.
+         * @param globalX Indicates the global X coordinate to set.
+         * @return void
+         * @since 20
+         */
+        void SetGlobalX(double globalX);
+
+         /**
+         * @brief Get global X coordinate.
+         * Current interface is for testing purposes only, globalX retrieved is invalid.
+         * @return double
+         * @since 20
+         */
+        double GetGlobalX() const;
+
+        /**
+         * @brief Set global Y coordinate.
+         * @param globalY Indicates the global Y coordinate to set.
+         * @return void
+         * @since 20
+         */
+        void SetGlobalY(double globalY);
+
+        /**
+         * @brief Get global X coordinate.
+         * Current interface is for testing purposes only, globalY retrieved is invalid.
+         * @return double
+         * @since 20
+         */
+        double GetGlobalY() const;
+
+        /**
+         * @brief Whether the global coordinates are valid.
+         * @return bool
+         * @since 20
+         */
+        bool IsValidGlobalXY() const;
+        /**
+         * @brief Obtains the width of the pressed area.
+         * @return Returns the width.
+         * @since 9
+         */
+        int32_t GetWidth() const;
+
+        /**
+         * @brief Sets the width of the pressed area.
+         * @param width Indicates the width to set.
+         * @return void
+         * @since 9
+         */
+        void SetWidth(int32_t width);
+
+        /**
+         * @brief Obtains the height of the pressed area.
+         * @return Returns the height.
+         * @since 9
+         */
+        int32_t GetHeight() const;
+
+        /**
+         * @brief Sets the height of the pressed area.
+         * @param height Indicates the height to set.
+         * @return void
+         * @since 9
+         */
+        void SetHeight(int32_t height);
+
+        /**
+         * @brief Obtains the X coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @return Returns the X coordinate.
+         * @since 9
+         */
+        int32_t GetToolDisplayX() const;
+
+        /**
+         * @brief Sets the X coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @param x Indicates the X coordinate.
+         * @return void
+         * @since 9
+         */
+        void SetToolDisplayX(int32_t displayX);
+
+        /**
+         * @brief Obtains the Y coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @return Returns the Y coordinate.
+         * @since 9
+         */
+        int32_t GetToolDisplayY() const;
+
+        /**
+         * @brief Sets the Y coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @param y Indicates the Y coordinate.
+         * @return void
+         * @since 9
+         */
+        void SetToolDisplayY(int32_t displayY);
+
+        /**
+         * @brief Obtains the X coordinate of the tool area's center point relative to the
+         * upper left corner of the window.
+         * @return Returns the X coordinate.
+         * @since 9
+         */
+        int32_t GetToolWindowX() const;
+
+        /**
+         * @brief Sets the X coordinate of the tool area's center point relative to the
+         * upper left corner of the window.
+         * @param x Indicates the X coordinate.
+         * @return void
+         * @since 9
+         */
+        void SetToolWindowX(int32_t x);
+
+        /**
+         * @brief Obtains the Y coordinate of the tool area's center point relative to the
+         * upper left corner of the window.
+         * @return Returns the Y coordinate.
+         * @since 9
+         */
+        int32_t GetToolWindowY() const;
+
+        /**
+         * @brief Sets the Y coordinate of the tool area's center point relative to the
+         * upper left corner of the window.
+         * @param y Indicates the Y coordinate.
+         * @return void
+         * @since 9
+         */
+        void SetToolWindowY(int32_t y);
+
+        /**
+         * @brief Obtains the width of the tool area.
+         * @return Returns the width of the tool area.
+         * @since 9
+         */
+        int32_t GetToolWidth() const;
+
+        /**
+         * @brief Sets the width of the tool area.
+         * @param width Indicates the width of the tool area.
+         * @return void
+         * @since 9
+         */
+        void SetToolWidth(int32_t width);
+
+        /**
+         * @brief Obtains the height of the tool area.
+         * @return Returns the height of the tool area.
+         * @since 9
+         */
+        int32_t GetToolHeight() const;
+
+        /**
+         * @brief Sets the height of the tool area.
+         * @param height Indicates the height of the tool area.
+         * @return void
+         * @since 9
+         */
+        void SetToolHeight(int32_t height);
+
+        /**
+         * @brief Obtains the tilt angle of the x axis.
+         * @return Returns the tilt angle of the x axis.
+         * @since 9
+         */
+        double GetTiltX() const;
+
+        /**
+         * @brief Sets the tilt angle of the x axis.
+         * @param tiltX Indicates the tilt angle to set.
+         * @return void
+         * @since 9
+         */
+        void SetTiltX(double tiltX);
+
+        /**
+         * @brief Obtains the tilt angle of the y axis.
+         * @return Returns the tilt angle of the y axis.
+         * @since 9
+         */
+        double GetTiltY() const;
+
+        /**
+         * @brief Sets the tilt angle of the y axis.
+         * @param tiltY Indicates the tilt angle to set.
+         * @return void
+         * @since 9
+         */
+        void SetTiltY(double tiltY);
+
+        /**
+         * @brief Obtains the pressure in this event.
+         * @return Returns the pressure.
+         * @since 9
+         */
+        double GetPressure() const;
+
+        /**
+         * @brief Sets the pressure for this event.
+         * @param pressure Indicates the pressure to set.
+         * @return void
+         * @since 9
+         */
+        void SetPressure(double pressure);
+
+        /**
+         * @brief Obtains the moveflag in this event.
+         * @return Returns the moveflag.
+         * @since 12
+         */
+        int32_t GetMoveFlag() const;
+
+        /**
+         * @brief Sets the moveflag for this event.
+         * @param moveflag Indicates the moveflag to set.
+         * @return void
+         * @since 12
+         */
+        void SetMoveFlag(int32_t moveFlag);
+
+        /**
+         * @brief Obtains the long axis of the touch point area.
+         * @return Returns the long axis of the touch point area.
+         * @since 9
+         */
+        int32_t GetLongAxis() const;
+
+        /**
+         * @brief Sets the long axis of the touch point area.
+         * @param longAxis Indicates the long axis of the touch point area.
+         * @return void
+         * @since 9
+         */
+        void SetLongAxis(int32_t longAxis);
+
+        /**
+         * @brief Obtains the short axis of the touch point area.
+         * @return Returns the short axis of the touch point area.
+         * @since 9
+         */
+        int32_t GetShortAxis() const;
+
+        /**
+         * @brief Sets the short axis of the touch point area.
+         * @param shortAxis Indicates the short axis of the touch point area.
+         * @return void
+         * @since 9
+         */
+        void SetShortAxis(int32_t shortAxis);
+
+        /**
+         * @brief Obtains the ID of the current device.
+         * @return Returns the device ID.
+         * @since 9
+         */
+        int32_t GetDeviceId() const;
+
+        /**
+         * @brief Sets the ID for the current device.
+         * @param deviceId Indicates the device ID to set.
+         * @return void
+         * @since 9
+         */
+        void SetDeviceId(int32_t deviceId);
+
+        /**
+         * @brief Obtains the tool type.
+         * @return Returns the tool type.
+         * @since 9
+         */
+        int32_t GetToolType() const;
+
+        /**
+         * @brief Sets the tool type.
+         * @param toolType Indicates the tool type to set.
+         * @return void
+         * @since 9
+         */
+        void SetToolType(int32_t toolType);
+
+        /**
+         * @brief Obtains the ID of the window corresponding to the finger touch position.
+         * @return Returns the ID of the target window.
+         * @since 9
+         */
+        int32_t GetTargetWindowId() const;
+
+        /**
+         * @brief Sets the ID of the window corresponding to the finger touch position.
+         * @param windowId Indicates the ID of the target window.
+         * @return void
+         * @since 9
+         */
+        void SetTargetWindowId(int32_t windowId);
+
+        /**
+         * @brief Writes data to a <b>Parcel</b> object.
+         * @param out Indicates the object into which data will be written.
+         * @return Returns <b>true</b> if the data is successfully written; returns <b>false</b> otherwise.
+         * @since 9
+         */
+        bool WriteToParcel(Parcel &out) const;
+
+        /**
+         * @brief Reads data from a <b>Parcel</b> object.
+         * @param in Indicates the object from which data will be read.
+         * @return Returns <b>true</b> if the data is successfully read; returns <b>false</b> otherwise.
+         * @since 9
+         */
+        bool ReadFromParcel(Parcel &in);
+
+        /**
+         * @brief Obtains the raw X coordinate.
+         * @return Returns the raw X coordinate.
+         * @since 9
+         */
+        int32_t GetRawDx() const;
+
+        /**
+         * @brief Sets the raw X coordinate.
+         * @param rawDx Indicates the raw X coordinate to set.
+         * @return void
+         * @since 9
+         */
+
+        void SetRawDx(int32_t rawDx);
+        /**
+         * @brief Obtains the raw Y coordinate.
+         * @return Returns the raw Y coordinate.
+         * @since 9
+         */
+        int32_t GetRawDy() const;
+
+        /**
+         * @brief Sets the raw Y coordinate.
+         * @param rawDy Indicates the raw Y coordinate to set.
+         * @return void
+         * @since 9
+         */
+        void SetRawDy(int32_t rawDy);
+
+         /**
+         * @brief Sets the raw X coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @param rawDisplayX Indicates the raw X coordinate to set.
+         * @return void
+         * @since 12
+         */
+        void SetRawDisplayX(int32_t rawDisplayX);
+
+        /**
+         * @brief Obtains the raw X coordinate relative to the upper left corner of the screen.
+         * @return Returns the raw X coordinate.
+         * @since 12
+         */
+        int32_t GetRawDisplayX() const;
+
+        /**
+         * @brief Sets the raw Y coordinate of the tool area's center point relative to the
+         * upper left corner of the screen.
+         * @param rawDisplayY Indicates the raw Y coordinate to set.
+         * @return void
+         * @since 12
+         */
+
+        void SetRawDisplayY(int32_t rawDisplayY);
+        /**
+         * @brief Obtains the raw Y coordinate relative to the upper left corner of the screen..
+         * @return Returns the raw Y coordinate.
+         * @since 12
+         */
+        int32_t GetRawDisplayY() const;
+
+        /**
+         * @brief Obtains the blobid in this event.
+         * @return Returns the blobid.
+         * @since 12
+         */
+        int32_t GetBlobId() const;
+
+        /**
+         * @brief Sets the blobid in this event.
+         * @param blobId Indicates the blobid to set.
+         * @return void
+         * @since 12
+         */
+        void SetBlobId(int32_t blobId);
+
+        /**
+         * @brief Obtains the twist in this event.
+         * @return Returns the twist.
+         */
+        int32_t GetTwist() const;
+
+        /**
+         * @brief Sets the twist in this event.
+         * @param twist Indicates the twist to set.
+         * @return void
+         */
+        void SetTwist(int32_t twist);
+
+        /**
+         * @brief Checks whether the pointer is canceled.
+         * @return Returns <b>true</b> if the pointer is canceled; returns <b>false</b> otherwise.
+         * @since 9
+         */
+        bool IsCanceled() const;
+
+        /**
+         * @brief Sets whether to enable the canceled state for the pointer.
+         * @param canceled Specifies whether to set the canceled state for the pointer.
+         * The value <b>true</b> means to set the canceled state for the pointer, and the
+         * value <b>false</b> means the opposite.
+         * @return void
+         * @since 9
+         */
+        void SetCanceled(bool canceled);
+
+        /**
+         * @brief Obtains the x coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         */
+        int32_t GetFixedDisplayX() const;
+
+        /**
+         * @brief Sets the x coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         * @param fixedDisplayX Indicates the x coordinate to set.
+         * @return void
+         */
+        void SetFixedDisplayX(int32_t fixedDisplayX);
+
+        /**
+         * @brief Obtains the y coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         */
+        int32_t GetFixedDisplayY() const;
+
+        /**
+         * @brief Sets the y coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         * @param fixedDisplayY Indicates the y coordinate to set.
+         * @return void
+         */
+        void SetFixedDisplayY(int32_t fixedDisplayY);
+
+        /**
+         * @brief Obtains the x coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         */
+        double GetFixedDisplayXPos() const;
+
+        /**
+         * @brief Sets the x coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         * @param fixedDisplayX Indicates the x coordinate to set.
+         * @return void
+         */
+        void SetFixedDisplayXPos(double fixedDisplayX);
+
+        /**
+         * @brief Obtains the y coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         */
+        double GetFixedDisplayYPos() const;
+
+        /**
+         * @brief Sets the y coordinate relative to the upper left corner of the virtual screen in one-hand mode.
+         * @param fixedDisplayY Indicates the y coordinate to set.
+         * @return void
+         */
+        void SetFixedDisplayYPos(double fixedDisplayY);
+
+        /**
+         * @brief Sets the orientation of the physical display.
+         * @param orientation Indicates the orientation coordinate to set.
+         * @return void
+         */
+        void SetOrientation(int32_t orientation);
+
+        /**
+         * @brief Obtains the orientation of the physical display.
+         * @return Returns the orientation
+         */
+        int32_t GetOrientation();
+
+        /**
+         * @brief Obtains the visible of the cursor.
+         * @return Returns the visible
+         */
+        bool GetVisible() const;
+
+        /**
+         * @brief Sets the visible of the cursor.
+         * @param visible Indicates the cursor visible to set.
+         * @return void
+         */
+        void SetVisible(bool visible);
+
+        /**
+         * @brief Obtains the style of the cursor.
+         * @return Returns the style
+         */
+        int32_t GetStyle() const;
+
+        /**
+         * @brief Sets the style of the cursor.
+         * @param style Indicates the cursor style to set.
+         * @return void
+         */
+        void SetStyle(int32_t style);
+
+        /**
+         * @brief Obtains the size level of the cursor.
+         * @return Returns the size level
+         */
+        int32_t GetSizeLevel() const;
+
+        /**
+         * @brief Sets the size level of the cursor.
+         * @param sizeLevel Indicates the cursor size level to set.
+         * @return void
+         */
+        void SetSizeLevel(int32_t sizeLevel);
+
+        /**
+         * @brief Obtains the color of the cursor.
+         * @return Returns the color
+         */
+        uint32_t GetColor() const;
+
+        /**
+         * @brief Sets the color of the cursor.
+         * @param color Indicates the cursor color to set.
+         * @return void
+         */
+        void SetColor(uint32_t color);
+        
+        /**
+         * @brief Sets the Extension value
+         * @param key the extension data type
+         * @param val the extension data value
+         * @return void
+         * @since 23
+         */
+        void SetExtension(const PointerItemExtension &key, const int32_t &val);
+        void SetExtension(const PointerItemExtension &key, const double &val);
+
+        /**
+         * @brief Get Extension data Value
+         * @param key the extension data type
+         * @param outVal the output value
+         * @return bool: success or not
+         * @since 23
+         */
+        bool GetExtension(PointerItemExtension key, double &outVal) const;
+        bool GetExtension(PointerItemExtension key, int32_t &outVal) const;
+
+    private:
+        int32_t pointerId_ { -1 };
+        bool pressed_ { false };
+        int32_t displayX_ {};
+        int32_t displayY_ {};
+        double globalX_ { DBL_MAX };
+        double globalY_ { DBL_MAX };
+        double  fixedDisplayX_ {};
+        double  fixedDisplayY_ {};
+        int32_t windowX_ {};
+        int32_t windowY_ {};
+        double displayXPos_ {};
+        double displayYPos_ {};
+        double windowXPos_ {};
+        double windowYPos_ {};
+        double windowXPredict_ {};
+        double windowYPredict_ {};
+        bool predictExist_ { false };
+        int32_t width_ {};
+        int32_t height_ {};
+        double tiltX_ {};
+        double tiltY_ {};
+        int32_t toolDisplayX_ {};
+        int32_t toolDisplayY_ {};
+        int32_t toolWindowX_ {};
+        int32_t toolWindowY_ {};
+        int32_t toolWidth_ {};
+        int32_t toolHeight_ {};
+        double pressure_ {};
+        int32_t moveFlag_ { -1 };
+        int32_t longAxis_ {};
+        int32_t shortAxis_ {};
+        int32_t deviceId_ {};
+        int64_t downTime_ {};
+        int32_t toolType_ {};
+        int32_t targetWindowId_ { -1 };
+        int32_t originPointerId_ { 0 };
+        int32_t rawDx_ {};
+        int32_t rawDy_ {};
+        int32_t rawDisplayX_ {};
+        int32_t rawDisplayY_ {};
+        int32_t blobId_ {};
+        int32_t twist_ {};
+        bool canceled_ { false };
+        int32_t orientation_ {-1};
+        bool visible_ { false };
+        int32_t style_ {};
+        int32_t sizeLevel_ {};
+        uint32_t color_ {};
+
+        /**
+         * @brief Extension Data struct and properties
+         * @since 23
+         */
+        enum class ExtensionValueType : int32_t {
+            TYPE_INT32 = 0,
+            TYPE_DOUBLE = 1,
+        };
+
+        /**
+         * @brief Extension Data struct and properties
+         * @since 23
+         */
+        struct ExtensionData {
+            PointerItemExtension key;
+            ExtensionValueType type;
+            union {
+                int32_t intVal = 0;
+                double doubleVal;
+            };
+            ExtensionData() = default;
+            ExtensionData(PointerItemExtension k, int32_t v) : key(k),
+                type(ExtensionValueType::TYPE_INT32), intVal(v) {}
+            ExtensionData(PointerItemExtension k, double v) : key(k),
+                type(ExtensionValueType::TYPE_DOUBLE), doubleVal(v) {}
+        };
+
+        std::vector<ExtensionData> extensionData_;
+    };
+
+public:
+    /**
+     * @brief Copy constructor function for PointerEvent
+     * @since 9
+     */
+    PointerEvent(const PointerEvent& other);
+
+    /**
+     * Virtual destructor of PointerEvent
+     *
+     * @since 9
+     */
+    virtual ~PointerEvent();
+
+    PointerEvent& operator=(const PointerEvent& other) = delete;
+    DISALLOW_MOVE(PointerEvent);
+
+    /**
+     * @brief Create PointerEvent object
+     * @since 9
+     */
+    static std::shared_ptr<PointerEvent> Create();
+
+    virtual void Reset() override;
+
+    virtual std::string ToString() override;
+
+    /**
+     * @brief Get the hash value.
+     * @return size_t
+     * @since 21
+     */
+    virtual size_t Hash() override;
+
+    /**
+     * @brief Obtains the pointer action in this event.
+     * @return Returns the pointer action.
+     * @since 9
+     */
+    int32_t GetPointerAction() const;
+
+    /**
+     * @brief Sets a pointer action for this event.
+     * @param pointerAction Indicates the pointer action to set.
+     * @return void
+     * @since 9
+     */
+    void SetPointerAction(int32_t pointerAction);
+
+    /**
+     * @brief Get throw Angle
+     * @return Return the pull throw angle
+     * @since 18
+     */
+    double GetThrowAngle() const;
+
+    /**
+     * @brief Set throw Angle
+     * @return void
+     * @since 18
+     */
+    void SetThrowAngle(double throwAngle);
+
+    /**
+     * @brief Get throw Speed
+     * @return Return the pull throw speed
+     * @since 18
+     */
+    double GetThrowSpeed() const;
+
+    /**
+     * @brief Set throw Speed
+     * @return void
+     * @since 18
+     */
+    void SetThrowSpeed(double throwSpeed);
+
+    /**
+     * @brief Dumps the action of this pointer input event as a string.
+     * @return Returns the pointer to the string.
+     * @since 9
+     */
+    const char* DumpPointerAction() const;
+
+    /**
+     * @brief Obtains the pointer ID in this event.
+     * @return Returns the pointer ID.
+     * @since 9
+     */
+    int32_t GetPointerId() const;
+
+    /**
+     * @brief Sets an ID for the pointer in this event.
+     * @param pointerId Indicates the pointer ID to set.
+     * @return void
+     * @since 9
+     */
+    void SetPointerId(int32_t pointerId);
+
+    /**
+     * @brief Obtains the pointer item of a specified pointer ID.
+     * @param pointerId Indicates the pointer ID.
+     * @param pointerItem Indicates the item used to receive the data of the pointer.
+     * @return Returns <b>true</b> if the data of the pointer with the specified ID exists;
+     * returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool GetPointerItem(int32_t pointerId, PointerItem &pointerItem) const;
+
+    /**
+     * @brief Obtains the origin pointer item of a specified pointer ID.
+     * @param pointerId Indicates the pointer ID.
+     * @param pointerItem Indicates the item used to receive the data of the pointer.
+     * @return Returns <b>true</b> if the data of the origin pointer with the specified ID exists;
+     * returns <b>false</b> otherwise.
+     * @since 20
+     */
+    bool GetOriginPointerItem(int32_t pointerId, PointerItem &pointerItem) const;
+
+    /**
+     * @brief Adds a pointer item.
+     * @param pointerItem Indicates the pointer item to add.
+     * @return void
+     * @since 9
+     */
+    void AddPointerItem(PointerItem &pointerItem);
+
+    /**
+     * @brief Removes a pointer item based on the pointer ID.
+     * @param pointerId Indicates the ID of the pointer from which the pointer item is to be removed.
+     * @return void
+     * @since 9
+     */
+    void RemovePointerItem(int32_t pointerId);
+
+    /**
+     * @brief All of the pointer items is be removed.
+     * @return void
+     * @since 9
+     */
+    void RemoveAllPointerItems();
+
+    /**
+     * @brief Return all the pointerItems.
+     * @return Returns pointers_.
+     * @since 9
+     */
+    std::list<PointerItem> GetAllPointerItems() const;
+
+    /**
+     * @brief Updates a pointer item based on the pointer ID.
+     * @param pointerId Indicates the ID of the pointer from which the pointer item is to be updated.
+     * @param pointerItem Indicates the pointer item to update.
+     * @return void
+     * @since 9
+     */
+    void UpdatePointerItem(int32_t pointerId, PointerItem &pointerItem);
+
+    /**
+     * @brief Reset pointerItem id to originPointerId.
+     * @return void
+     * @since 23
+     */
+    void ResetPointerItemsId();
+
+    /**
+     * @brief Obtains the set of pressed buttons.
+     * @return Returns the pressed buttons.
+     * @since 9
+     */
+    std::set<int32_t> GetPressedButtons() const;
+
+    /**
+     * @brief Checks whether a specified button is being pressed.
+     * @param buttonId Indicates the button ID.
+     * @return Returns <b>true</b> if the button is being pressed; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool IsButtonPressed(int32_t buttonId) const;
+
+    /**
+     * @brief Sets the pressed state for a button.
+     * @param buttonId Indicates the button ID of the button to be set in the pressed state.
+     * @return void
+     * @since 9
+     */
+    void SetButtonPressed(int32_t buttonId);
+
+    /**
+     * @brief Deletes a released button.
+     * @param buttonId Indicates the button ID of the button.
+     * @return void
+     * @since 9
+     */
+    void DeleteReleaseButton(int32_t buttonId);
+
+    /**
+     * @brief Clears the button in the pressed state.
+     * @return void
+     * @since 9
+     */
+    void ClearButtonPressed();
+
+    int32_t GetPointerCount() const;
+
+    /**
+     * @brief Obtains all pointers in this event.
+     * @return Returns all the pointer IDs.
+     * @since 9
+     */
+    std::vector<int32_t> GetPointerIds() const;
+
+    /**
+     * @brief Obtains the button ID in this event.
+     * @return Returns the button ID.
+     * @since 9
+     */
+    int32_t GetButtonId() const;
+
+    /**
+     * @brief Sets the button ID for this event.
+     * @param buttonId Indicates the button ID to set.
+     * @return void
+     * @since 9
+     */
+    void SetButtonId(int32_t buttonId);
+
+    /**
+     * @brief Obtains the finger count in this event.
+     * @return Returns the finger count.
+     * @since 9
+     */
+    int32_t GetFingerCount() const;
+
+    /**
+     * @brief Sets the finger count for this event.
+     * @param fingerCount Indicates the finger count to set.
+     * @return void
+     * @since 9
+     */
+    void SetFingerCount(int32_t fingerCount);
+
+    /**
+     * @brief Obtains the zOrder in this event, inject to windows whose zOrder less than the target zOrder.
+     * @return Returns the zOrder.
+     * @since 9
+     */
+    float GetZOrder() const;
+
+    /**
+     * @brief Sets the zOrder for this event, inject to windows whose zOrder less than the target zOrder.
+     * @param fingerCount Indicates the zOrder to set.
+     * @return void
+     * @since 9
+     */
+    void SetZOrder(float zOrder);
+
+    /**
+     * @brief Obtains the axis value.
+     * @param axis Indicates the axis type.
+     * @return Returns the axis value.
+     * @since 9
+     */
+    double GetAxisValue(AxisType axis) const;
+
+    /**
+     * @brief Sets the axis value.
+     * @param axis Indicates the axis type.
+     * @param axisValue Indicates the axis value to set.
+     * @return void
+     * @since 9
+     */
+    void SetAxisValue(AxisType axis, double axisValue);
+
+    /**
+     * @brief Clear the axis value of PointerEvent when a mouse event is received.
+     * @return void
+     * @since 9
+     */
+    void ClearAxisValue();
+    void ClearAxisStatus(AxisType axis);
+
+    /**
+     * @brief Checks whether this event contains a specified axis type.
+     * @param axis Indicates the axis type.
+     * @return Returns <b>true</b> if the event contains the specified axis type; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool HasAxis(AxisType axis) const;
+
+    /**
+     * @brief Obtains all axis of this event.
+     * @return Returns all the axis, Each bit indicates an axis.
+     * @since 9
+     */
+    uint32_t GetAxes() const;
+
+    /**
+     * @brief Obtains the axis value velocity.
+     * @return Returns the axis value velocity.
+     * @since 12
+     */
+    double GetVelocity() const;
+
+    /**
+     * @brief Sets the axis value velocity.
+     * @param velocity Indicates the axis value velocity.
+     * @return void
+     * @since 12
+     */
+    void SetVelocity(double velocity);
+
+    /**
+     * @brief Set the front keys in the key combination.
+     * @param pressedKeys Indicates the front keys to set.
+     * @return void.
+     * @since 9
+     */
+    void SetPressedKeys(const std::vector<int32_t> pressedKeys);
+
+    /**
+     * @brief Obtains the set of pressed keys.
+     * @return Returns the pressed keys.
+     * @since 9
+     */
+    std::vector<int32_t> GetPressedKeys() const;
+
+    /**
+     * @brief Checks whether this input event is valid.
+     * @return Returns <b>true</b> if the input event is valid; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool IsValid() const;
+
+    /**
+     * @brief 设置buffer值.
+     * @param buffer 表示该事件所携带的buffer值.
+     * @return void.
+     * @since 9
+     */
+    void SetBuffer(std::vector<uint8_t> buffer);
+
+    /**
+     * @brief 清空buffer值.
+     * @param void.
+     * @return void.
+     * @since 9
+     */
+    void ClearBuffer();
+
+    /**
+     * @brief 获取buffer值.
+     * @return Returns buffer.
+     * @since 9
+     */
+    std::vector<uint8_t> GetBuffer() const;
+
+    /**
+     * @brief Sets a hand option for this event.
+     * @param pointerAction Indicates the hand option to set.
+     * @return void
+     * @since 16
+     */
+    void SetHandOption(int32_t handOption);
+
+    /**
+     * @brief Obtains the hand option in this event.
+     * @return Returns the hand option.
+     * @since 16
+     */
+    int32_t GetHandOption() const;
+
+#ifdef OHOS_BUILD_ENABLE_SECURITY_COMPONENT
+    /**
+     * @brief Set the enhance data.
+     * @return void.
+     * @since 10
+     */
+    void SetEnhanceData(const std::vector<uint8_t>& enhanceData);
+    /**
+     * @brief Obtains the enhance data.
+     * @return Returns the enhance data.
+     * @since 10
+     */
+    std::vector<uint8_t> GetEnhanceData() const;
+#endif // OHOS_BUILD_ENABLE_SECURITY_COMPONENT
+public:
+    /**
+     * @brief Checks whether the axes set represented by <b>axes</b> contains a specified type of axis.
+     * @param axes Indicates the set of axes. Each bit indicates an axis.
+     * @param axis Indicates the type of the axis to check.
+     * @return Returns <b>true</b> if the axes set contains the specified axis type; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    static bool HasAxis(uint32_t axes, AxisType axis);
+
+    /**
+     * @brief Converts a pointer event action into a short string.
+     * @param Indicates the pointer event action.
+     * @return Returns the string converted from the pointer action.
+     * @since 12
+     */
+    static std::string_view ActionToShortStr(int32_t action);
+public:
+    /**
+     * @brief Writes data to a <b>Parcel</b> object.
+     * @param out Indicates the object into which data will be written.
+     * @return Returns <b>true</b> if the data is successfully written; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool WriteToParcel(Parcel &out) const;
+    bool Marshalling(Parcel &out) const override;
+    /**
+     * @brief Reads data from a <b>Parcel</b> object.
+     * @param in Indicates the object from which data will be read.
+     * @return Returns <b>true</b> if the data is successfully read; returns <b>false</b> otherwise.
+     * @since 9
+     */
+    bool ReadFromParcel(Parcel &in);
+    static PointerEvent *Unmarshalling(Parcel &in);
+
+    /**
+     * @brief The number of times the input event is dispatched.
+     * @return Return the event dispatch times.
+     * @since 12
+     */
+    int32_t GetDispatchTimes() const;
+
+    /**
+     * @brief The number of times the same input event was distributed to multiple different windows.
+     * @return void
+     * @since 12
+     */
+    void SetDispatchTimes(int32_t dispatchTimes);
+
+    /**
+    * @brief Set the handlerEventType for pointerEvent
+    * @return void
+    * @since 12
+    */
+    void SetHandlerEventType(HandleEventType eventType);
+
+    /**
+     * @brief Get the handlerEventType for pointerEvent
+     * @return handlerEventType
+     * @since 12
+     */
+    HandleEventType GetHandlerEventType() const;
+
+    /**
+     * @brief Get the originPointerAction for pointerEvent
+     * @return originPointerAction
+     * @since 12
+     */
+    int32_t GetOriginPointerAction() const;
+
+    /**
+     * @brief Set the originPointerAction for pointerEvent
+     * @return void
+     * @since 12
+     */
+    void SetOriginPointerAction(int32_t pointerAction);
+
+    /**
+     * @brief Obtains the axis event type.
+     * @return Returns the axis event type.
+     * @since 12
+     */
+    int32_t GetAxisEventType() const;
+
+    /**
+     * @brief Sets axis event type.
+     * @param axisEventType Indicates the axis event type to set.
+     * @return void
+     * @since 12
+     */
+    void SetAxisEventType(int32_t axisEventType);
+
+    /**
+     * @brief Obtains the drag id.
+     * @return Returns the drag id.
+     * @since 12
+     */
+    int32_t GetPullId() const;
+
+    /**
+     * @brief Sets drag id.
+     * @param pullId Indicates the drag id to set.
+     * @return void
+     * @since 12
+     */
+    void SetPullId(int32_t pullId);
+
+#ifdef OHOS_BUILD_ENABLE_FINGERPRINT
+    /**
+     * @brief Set the fingerprint distance X.
+     * @param X Indicates the distance X.
+     * @return void.
+     * @since 12
+     */
+    void SetFingerprintDistanceX(double x);
+
+    /**
+     * @brief Set the fingerprint distance Y.
+     * @param Y Indicates the distance Y.
+     * @return void.
+     * @since 12
+     */
+    void SetFingerprintDistanceY(double y);
+
+    /**
+     * @brief Get the fingerprint distance X.
+     * @return distance X.
+     * @since 12
+     */
+    double GetFingerprintDistanceX() const;
+
+    /**
+     * @brief Get the fingerprint distance Y.
+     * @return distance Y.
+     * @since 12
+     */
+    double GetFingerprintDistanceY() const;
+#endif // OHOS_BUILD_ENABLE_FINGERPRINT
+
+#ifdef OHOS_BUILD_ENABLE_ANCO
+    // SetAncoDeal接口和GetAncoDeal接口,使用时需要和多模对齐使用场景
+    void SetAncoDeal(bool ancoDeal);
+
+    bool GetAncoDeal() const;
+#endif // OHOS_BUILD_ENABLE_ANCO
+
+    void SetScrollRows(int32_t scrollRows);
+    int32_t GetScrollRows() const;
+    void SetAutoToVirtualScreen(bool autoToVirtualScreen);
+    bool GetAutoToVirtualScreen() const;
+    void SetFixedMode(PointerEvent::FixedMode fixedMode);
+    PointerEvent::FixedMode GetFixedMode() const;
+    std::string GetFixedModeStr() const;
+    void SetRightButtonSource(PointerEvent::RightButtonSource rightButtonSource);
+    PointerEvent::RightButtonSource GetRightButtonSource() const;
+    void SetDistributeEventTime(uint64_t distributeEventTime);
+    uint64_t GetDistributeEventTime();
+    void SetSignature(const std::string &signature);
+    std::string GetSignature() const;
+
+protected:
+    /**
+     * @brief Constructs an input event object by using the specified input event type. Generally, this method
+     * is used to construct a base class object when constructing a derived class object.
+     * @since 9
+     */
+    explicit PointerEvent(int32_t eventType);
+
+private:
+    bool IsValidCheckMouseFunc() const;
+    bool IsValidCheckMouse() const;
+    bool IsValidCheckTouchFunc() const;
+    bool IsValidCheckTouch() const;
+
+private:
+    bool ReadEnhanceDataFromParcel(Parcel &in);
+    bool ReadBufferFromParcel(Parcel &in);
+    bool ReadAxisFromParcel(Parcel &in);
+    bool ReadFixedModeFromParcel(Parcel &in);
+    bool ReadRightButtonSourceFromParcel(Parcel &in);
+
+private:
+    struct Settings {
+        int32_t scrollRows_ {};
+    };
+
+    int32_t pointerId_ { -1 };
+    std::list<PointerItem> pointers_;
+    std::set<int32_t> pressedButtons_;
+    int32_t pointerAction_ { POINTER_ACTION_UNKNOWN };
+    int32_t originPointerAction_ { POINTER_ACTION_UNKNOWN };
+    int32_t buttonId_ { BUTTON_NONE };
+    int32_t fingerCount_ { 0 };
+    int32_t pullId_ { -1 };
+    float zOrder_ { -1.0f };
+    uint32_t axes_ { 0U };
+    std::array<double, AXIS_TYPE_MAX> axisValues_ {};
+    double velocity_ { 0.0 };
+    std::vector<int32_t> pressedKeys_;
+    std::vector<uint8_t> buffer_;
+    int32_t axisEventType_ { AXIS_EVENT_TYPE_UNKNOWN };
+#ifdef OHOS_BUILD_ENABLE_FINGERPRINT
+    double fingerprintDistanceX_ { 0.0 };
+    double fingerprintDistanceY_ { 0.0 };
+#endif // OHOS_BUILD_ENABLE_FINGERPRINT
+    int32_t dispatchTimes_ { 0 };
+#ifdef OHOS_BUILD_ENABLE_SECURITY_COMPONENT
+    std::vector<uint8_t> enhanceData_;
+#endif // OHOS_BUILD_ENABLE_SECURITY_COMPONENT
+#ifdef OHOS_BUILD_ENABLE_ANCO
+    bool ancoDeal_ { false };
+#endif // OHOS_BUILD_ENABLE_ANCO
+    HandleEventType handleEventType_ = HANDLE_EVENT_TYPE_POINTER;
+    double throwAngle_ { 0.0 };
+    double throwSpeed_ { 0.0 };
+    Settings settings_ {};
+    bool autoToVirtualScreen_ { true };
+    // Left and right hand steady-state reporting status
+    int32_t handOption_ { -1 };
+    FixedMode fixedMode_ { FixedMode::NORMAL };
+    RightButtonSource rightButtonSource_ { RightButtonSource::INVALID };
+    std::string signature_;
+    uint64_t distributeEventTime_ = 0;
+};
+
+inline bool PointerEvent::HasAxis(AxisType axis) const
+{
+    return HasAxis(axes_, axis);
+}
+
+inline uint32_t PointerEvent::GetAxes() const
+{
+    return axes_;
+}
+} // namespace MMI
+} // namespace OHOS
+#endif // POINTER_EVENT_H
