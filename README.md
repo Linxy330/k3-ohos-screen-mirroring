@@ -2,7 +2,9 @@
 
 ## 简介
 
-此仓库的灵感来源于「鸿镜」——一个类似安卓Scrcpy，面向 OpenHarmony 设备的投屏开发调试工具，但是「鸿镜」仓库的 hap 程序适配的是 arm 架构的 OpenHarmony，而 K3 运行的是 risc v 架构的 OpenHarmony，因此，此仓库复用了「鸿镜」的 Windows 和 MacOS 客户端，另外编写了一套适用于 K3 的板端程序，使其能在板上运行，将画面传输至电脑，并将电脑下发的指令传输至 K3 后运行。
+最初的灵感来自于自带bianbu OS 的一次尝试--当时成功使用OTC 口进行了adb 连接，更进一步的，我们利用VNC（k3端）和Remmina(Ubuntu 26.04 PC端)，实现了近乎实时的窗口投屏，甚至交互功能。这无疑证明了OTC 口强大的功能。
+
+此仓库的灵感则来源于「鸿镜」——一个类似安卓Scrcpy，面向 OpenHarmony 设备的投屏开发调试工具，但是「鸿镜」仓库的 hap 程序适配的是 arm 架构的 OpenHarmony，而 K3 运行的是 risc v 架构的 OpenHarmony，因此，此仓库复用了「鸿镜」的 Windows 和 MacOS 客户端，另外编写了一套适用于 K3 的板端程序，使其能在板上运行，将画面传输至电脑，并将电脑下发的指令传输至 K3 后运行。
 
 ## 使用
 
